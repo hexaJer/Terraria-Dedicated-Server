@@ -1,0 +1,12 @@
+[Unit]
+Description=Terraria Dedicated Server
+
+[Service]
+Type=forking
+User=terraria
+KillMode=none
+ExecStart=/usr/bin/screen -dmS terraria /bin/bash -c "/opt/steamapps/terraria/TerrariaServer.bin.x86_64 -config /srv/terraria/terrariaserver/server.cfg"
+ExecStop=/srv/terraria/terrariaserver/terrariad exit
+
+[Install]
+WantedBy=multi-user.target
