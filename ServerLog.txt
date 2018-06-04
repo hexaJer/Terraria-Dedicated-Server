@@ -1,0 +1,11 @@
+[06/03/18 17:21:42] [Server API] Verbose: TerrariaApi - Server v2.1.0.0 started.
+[06/03/18 17:21:42] [Server API] Verbose: 	Command line: /opt/steamapps/TerrariaTShock/TerrariaServer.exe -config /srv/terraria/terrariaserver2/server.cfg
+[06/03/18 17:21:42] [Server API] Verbose: 	OS: Unix 4.4.0.21 (64bit: True)
+[06/03/18 17:21:42] [Server API] Verbose: 	Mono: True
+[06/03/18 17:22:01] [Server API] Error: ===================================================================================
+[06/03/18 17:22:01] [Server API] Error: An unhandled exception has occured in TSAPI, and a crash report will be generated
+[06/03/18 17:22:01] [Server API] Error: Generating a crash report, please wait...
+[06/03/18 17:22:01] [Server API] Error: Crash report saved at crash_131725129214097480.zip
+[06/03/18 17:22:01] [Server API] Error: Please upload the crash file and report it at http://tshock.co/
+[06/03/18 17:22:01] [Server API] Error: The process will terminate.
+[06/03/18 17:22:01] [Server API] Error: ===================================================================================

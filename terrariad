@@ -1,15 +1,31 @@
 #!/usr/bin/env bash
 
-send="`printf \"$*\r\"`"
-attach='script /dev/null -qc "screen -r terraria"'
-inject="screen -S terraria -X stuff $send"
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
-if [ "$1" = "attach" ] ; then cmd="$attach" ; else cmd="$inject" ; fi
+
+case "$1" in
+  attach)
+    cmd='script /dev/null -qc "screen -r terraria"'
+  ;;
+
+  backup)
+    echo "Backup $DIR/*.wld files"
+    cmd="pushd "$DIR" ; mkdir -v -p backup && find . -maxdepth 1 -name '*.wld' -exec cp -v {} backup/{}.`date +%Y%m%d%H%M%S` \; ; popd"
+  ;;
+  
+  *)
+    send="`printf \"$*\r\"`"
+    cmd="screen -S terraria -X stuff $send"
+  ;;
+esac
+
 
 if [ "`stat -c '%u' /var/run/screen/S-terraria/`" = "$UID" ]
 then
-    $cmd
+    echo "execute : $cmd"
+    bash -c "$cmd"
 else
+    echo "execute as terraria : $cmd"
     su - terraria -c "$cmd"
 fi
 
